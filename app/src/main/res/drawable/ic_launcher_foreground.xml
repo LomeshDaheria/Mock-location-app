@@ -1,0 +1,43 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Center Mock Location Pin with glow and inner reticle -->
+    <path
+        android:pathData="M54,26 C43.5,26 35,34.5 35,45 C35,58.5 54,78 54,78 C54,78 73,58.5 73,45 C73,34.5 64.5,26 54,26 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="35"
+                android:startY="26"
+                android:endX="73"
+                android:endY="78"
+                android:type="linear">
+                <item android:color="#38BDF8" android:offset="0.0" />
+                <item android:color="#2563EB" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Pin Core Circle -->
+    <path
+        android:pathData="M54,45m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0"
+        android:fillColor="#0F172A" />
+    <!-- Pin Center Reticle Dot -->
+    <path
+        android:pathData="M54,45m-3.5,0a3.5,3.5 0,1 1,7 0a3.5,3.5 0,1 1,-7 0"
+        android:fillColor="#38BDF8" />
+    <!-- Pulse signal arches above pin -->
+    <path
+        android:pathData="M40,24 C44,20 48.8,18 54,18 C59.2,18 64,20 68,24"
+        android:strokeWidth="2.5"
+        android:strokeColor="#38BDF8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+    <path
+        android:pathData="M34,18 C40,12 46.8,9 54,9 C61.2,9 68,12 74,18"
+        android:strokeWidth="2.0"
+        android:strokeColor="#818CF8"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000" />
+</vector>

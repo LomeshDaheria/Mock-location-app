@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Mock Location</string>
+    <string name="notification_channel_name">Mock Location Service</string>
+    <string name="notification_channel_desc">Active mock location broadcast updates</string>
+    <string name="teleport_tab">Map</string>
+    <string name="routes_tab">Routes</string>
+    <string name="joystick_tab">Joystick</string>
+    <string name="saved_tab">Saved</string>
+    <string name="tools_tab">Verify &amp; Guide</string>
+</resources>
