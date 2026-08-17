@@ -5,16 +5,18 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
-  workflow_dispatch: # Allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Check out the code
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # Step 2: Set up Java 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
@@ -22,14 +24,22 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
+      # Step 3: Ensure Gradle wrapper script has execute permissions
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew || true
 
-      - name: Build Debug APK & SDK Library
-        run: gradle assembleDebug
+      # Step 4: Compile APK with Headless and Daemon settings
+      - name: Build Debug APK
+        env:
+          JAVA_TOOL_OPTIONS: "-Djava.awt.headless=true"
+          GRADLE_OPTS: "-Dorg.gradle.jvmargs=\"-Xmx4g -Djava.awt.headless=true\""
+        run: |
+          ./gradlew assembleDebug --no-daemon --stacktrace -Djava.awt.headless=true
 
-      - name: Upload Debug APK Artifact
+      # Step 5: Upload the generated APK as an artifact for download
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
           name: mock-location-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
